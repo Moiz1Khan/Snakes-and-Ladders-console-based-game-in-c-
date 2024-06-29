@@ -710,3 +710,121 @@ void record(int position[4])
 	}
 
 }
+num();
+    dice1 = randomnum();
+    x = _getch();
+    snkLD(player3);
+    menu2SL();
+    cout << "Number on dice1:   " << dice << endl;
+    cout << "Number on dice2:   " << dice1 << "\n" << endl;
+    while (dice + dice1 == 12)
+    {
+        move3(map, dice, dice1, size, player3, turN1[2], temp[2]);
+        map1(map, size, player3);
+        x = _getch();
+        dice = randomnum();
+        dice1 = randomnum();
+        snkLD(player3);
+        menu2SL();
+        cout << "Number on dice1: " << dice << endl;
+        cout << "Number on dice2: " << dice1 << "\n" << endl;
+    }
+    move3(map, dice, dice1, size, player3, turN1[2], temp[2]);
+    SL(player3);
+    if (player3 < 100)
+    {
+        cout << playeR3 << " score: " << player3 << endl;
+    }
+    else if (player3 == 100 && player1 < 100 && player2 < 100 && player4 < 100)
+    {
+        cout << playeR3 << ": Congrats. You won the game. You are at 1st Position\n"; position[0] = 1;
+    }
+    else if (player1 == 100 && player2 < 100 && player4 < 100 || player2 == 100 && player1 < 100 && player4 < 100 || player4 == 100 && player2 < 100 && player1 < 100)
+    {
+        if (player3 == 100)
+        {
+            cout << "Congrats, You got Second Position\n"; position[1] = 2;
+        }
+    }
+    else if (player1 == 100 && player2 == 100 && player4 < 100 || player2 == 100 && player1 < 100 && player4 == 100 || player4 == 100 && player2 == 100 && player1 < 100)
+    {
+        if (player3 == 100)
+        {
+            cout << "Congrats, You got Third Position\n"; position[2] = 3;
+        }
+    }
+    if (player1 == 100 && player2 == 100 && player4 == 100 && player3 < 100)
+    {
+        cout << "Sorry! You lose the Game\n"; position[3] = 4;
+    }
+    else if (player3 > 100)
+    {
+        player3 = player3 - (dice + dice1);
+        cout << playeR3 << " score: " << player3 << endl;
+    }
+
+    map1(map, size, player3);
+    kill(player3, player1, player2, player4);
+}
+
+void plaYer4(char playeR4[50], int& dice, int &dice1, int &player1, int temp[4], int map[][10], int size, bool turN1[4], int &player2, int& player3, int &player4, int position[4])
+{
+    char x = _getch();
+    cout << playeR4 << " Turn:- \t\tPress any key to roll Dices...\n" << endl;
+    dice = randomnum();
+    dice1 = randomnum();
+    x = _getch();
+    snkLD(player4);
+    menu2SL();
+    cout << "Number on dice1:   " << dice << endl;
+    cout << "Number on dice2:   " << dice1 << "\n" << endl;
+    while (dice + dice1 == 12)
+    {
+        move4(map, dice, dice1, size, player4, turN1[3], temp[3]);
+        map1(map, size, player4);
+        x = _getch();
+        dice = randomnum();
+        dice1 = randomnum();
+        snkLD(player4);
+        menu2SL();
+        cout << "Number on dice1: " << dice << endl;
+        cout << "Number on dice2: " << dice1 << "\n" << endl;
+    }
+    move4(map, dice, dice1, size, player4, turN1[3], temp[3]);
+    SL(player4);
+    if (player4 < 100)
+    {
+        cout << playeR4 << " score: " << player4 << endl;
+    }
+    else if (player4 == 100 && player1 < 100 && player2 < 100 && player3 < 100)
+    {
+        cout << playeR4 << ": Congrats. You won the game. You are at 1st Position\n"; position[0] = 1;
+    }
+    else if (player1 == 100 && player2 < 100 && player3 < 100 || player2 == 100 && player1 < 100 && player3 < 100 || player3 == 100 && player2 < 100 && player1 < 100)
+    {
+        if (player4 == 100)
+        {
+            cout << "Congrats, You got Second Position\n"; position[1] = 2;
+        }
+    }
+    else if (player1 == 100 && player2 == 100 && player3 < 100 || player2 == 100 && player1 < 100 && player3 == 100 || player3 == 100 && player2 == 100 && player1 < 100)
+    {
+        if (player4 == 100)
+        {
+            cout << "Congrats, You got Third Position\n"; position[2] = 3;
+        }
+    }
+    if (player1 == 100 && player2 == 100 && player3 == 100 && player4 < 100)
+    {
+        cout << "Sorry! You lose the Game\n"; position[3] = 4;
+    }
+    else if (player4 > 100)
+    {
+        player4 = player4 - (dice + dice1);
+        cout << playeR4 << " score: " << player4 << endl;
+    }
+
+    map1(map, size, player4);
+    kill(player4, player1, player2, player3);
+}
+
